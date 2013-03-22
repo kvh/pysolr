@@ -687,10 +687,10 @@ class Solr(object):
                 if self._is_null_value(bit):
                     continue
 
-                attrs = {'name': key}
+                attrs = {str('name'): key}
 
                 if boost and key in boost:
-                    attrs['boost'] = force_unicode(boost[key])
+                    attrs[str('boost')] = force_unicode(boost[key])
 
                 field = ET.Element('field', **attrs)
                 field.text = self._from_python(bit)
